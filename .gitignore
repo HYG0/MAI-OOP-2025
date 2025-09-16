@@ -1,0 +1,4 @@
+.devcontainer/
+.vscode
+lab*/build/*
+!lab*/build/CMakeLists.txt
