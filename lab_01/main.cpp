@@ -3,9 +3,16 @@
 
 int main() {
     std::string day;
-    std::cout << "Enter you day:\n";
+    int num;
+    std::cout << "Enter your day and number:\n";
     std::cin >> day;
-    std::cout << AfraidNumber(&day) << "\n";
-    std::cout << "Are you scared?" << "\n";
+    std::cin >> num;
+
+    if (AfraidNumber(day, num)) {
+        std::cout << "I am so afraid!\n";
+    } else {
+       std::cout << "Fuuuh, I`m not scary :)\n";
+    }
+
     return 0;
 }

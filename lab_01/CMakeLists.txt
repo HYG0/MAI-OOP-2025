@@ -10,15 +10,15 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_library(lab_lib STATIC ../src/lab.cpp)
-add_executable(Main_exe ../main.cpp)
+add_library(lab_lib STATIC src/lab.cpp)
+add_executable(Main_exe main.cpp)
 
 target_link_libraries(Main_exe lab_lib)
 
 # Добавляем тесты
 enable_testing()
 
-add_executable(tests ../test/test01.cpp)
+add_executable(tests test/test01.cpp)
 target_link_libraries(tests lab_lib gtest_main)
 
 add_test(NAME Lab01Tests COMMAND tests)
