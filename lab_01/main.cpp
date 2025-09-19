@@ -8,6 +8,10 @@ int main() {
     std::cin >> day;
     std::cin >> num;
 
+    if (!IsCorrect(day)) {
+        return 0;
+    }
+    
     if (AfraidNumber(day, num)) {
         std::cout << "I am so afraid!\n";
     } else {
