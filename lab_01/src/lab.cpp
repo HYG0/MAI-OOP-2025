@@ -1,30 +1,25 @@
 #include "../include/lab.hpp"
 #include <cmath>
+#include <exception>
 #include <iostream>
 #include <string>
-
+#include <stdexcept>
 
 bool AfraidNumber(const std::string& weekday,const int& number) {
-    if (weekday == "Понедельник" && number == 12) return true;
-    else if (weekday == "Вторник" && number > 95) return true;
-    else if (weekday == "Среда" && number == 34) return true;
-    else if (weekday == "Четверг" && number == 0) return true;
-    else if (weekday == "Пятница" && number % 2 == 0) return true;
-    else if (weekday == "Суббота" && number == 56) return true;
-    else if (weekday == "Воскресенье" && std::abs(number) == 666 ) return true;
-
-    return false;
+    return (weekday == "Понедельник" && number == 12) || (weekday == "Вторник" && number > 95) ||
+    (weekday == "Среда" && number == 34) || (weekday == "Четверг" && number == 0) || (weekday == "Пятница" && (number & 1) == 0) ||
+    (weekday == "Суббота" && number == 56) || (weekday == "Воскресенье" && std::abs(number) == 666 );
 }
 
 bool IsCorrect(const std::string& str) {
     if ((str.size() / 2) < 5) {
-        std::cout << "Your input not correct :(\n";
+        throw std::runtime_error("Weekday don't exist!");
         return false;
     }
     
     for (const char& letter : str) {
         if ((letter & 0xFF) < 128) {
-            std::cout << "Your input not correct :(\n";
+            throw std::runtime_error("Weekday don't exist!");
             return false;
         }
     }

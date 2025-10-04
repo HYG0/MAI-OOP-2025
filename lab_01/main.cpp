@@ -8,9 +8,14 @@ int main() {
     std::cin >> day;
     std::cin >> num;
 
-    if (!IsCorrect(day)) {
+    try {
+        IsCorrect(day);
+    }
+    catch (...) {
+        std::cout << "Incorrect input\n";
         return 0;
     }
+    
     
     if (AfraidNumber(day, num)) {
         std::cout << "I am so afraid!\n";
