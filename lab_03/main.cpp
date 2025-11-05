@@ -3,19 +3,6 @@
 #include "custom_memory.h"
 #include "array.h"
 
-
-struct Person {
-    int id;
-    std::string name;
-    double data;
-    
-    Person(int i, const std::string& n, double s) : id(i), name(n), data(s) {}
-    
-    friend std::ostream& operator<<(std::ostream& os, const Person& p) {
-        return os << "Person{id: " << p.id << ", name: " << p.name << ", birthday: " << p.data << "}";
-    }
-};
-
 struct Employer {
     int age;
     std::string name;
