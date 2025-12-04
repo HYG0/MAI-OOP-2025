@@ -3,17 +3,11 @@
 #include "custom_memory.h"
 #include "array.h"
 
-struct Employer {
-    int age;
-    std::string name;
-    double height;
-    
-    Employer(int i, const std::string& n, double s) : age(i), name(n), height(s) {}
-    
-    friend std::ostream& operator<<(std::ostream& os, const Employer& p) {
-        return os << "Person{id: " << p.age << ", name: " << p.name << ", birthday: " << p.height << "}";
-    }
-};
+CustomMemoryResource resource;
+DynamicArray<Person> people(&resource);
+
+CustomMemoryResource resource;
+DynamicArray<Person> people(&resource);
 
 int main() {
     CustomMemoryResource resource;
